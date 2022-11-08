@@ -11,7 +11,6 @@ typedef enum {
 typedef enum {
     SUCCESS = 0,
     FAILURE = 1,
-    RETRY   = 2
 } valor_ret;
 
 typedef struct {
