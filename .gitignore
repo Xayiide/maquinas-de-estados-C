@@ -1,0 +1,18 @@
+# intermediary files
+*.swp
+
+# objects
+*.o
+
+# libraries
+*.a
+
+# executables
+prueba
+showip
+
+# IDE files
+*.vscode
+*.project
+*.cproject
+*.settings
