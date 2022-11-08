@@ -22,11 +22,11 @@ typedef struct {
 
 transicion transiciones[] = {
     {EST_A, SUCCESS, EST_B},
-    {EST_A, FAILURE, EST_D},
+    {EST_A, FAILURE, EST_C},
     {EST_B, SUCCESS, EST_C},
     {EST_B, FAILURE, EST_A},
     {EST_C, SUCCESS, EST_D},
-    {EST_C, FAILURE, EST_D},
+    {EST_C, FAILURE, EST_B},
 };
 
 #define ESTADO_ENTRADA EST_A

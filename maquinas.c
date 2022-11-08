@@ -1,30 +1,28 @@
 #include <stdio.h>
 #include <unistd.h> /* sleep */
+#include <stdlib.h> /* rand */
+#include <time.h>   /* time */
 
 #include "inc/maquinas.h"
 
 valor_ret est_a(void) {
     printf("Estamos en A\n");
-    sleep(1);
-    return SUCCESS;
+    return (valor_ret) rand() % 2;
 }
 
 valor_ret est_b(void) {
     printf("Estamos en B\n");
-    sleep(1);
-    return SUCCESS;
+    return (valor_ret) rand() % 2;
 }
 
 valor_ret est_c(void) {
     printf("Estamos en C\n");
-    sleep(1);
-    return SUCCESS;
+    return (valor_ret) rand() % 2;
 }
 
 valor_ret est_d(void) {
     printf("Estamos en D\n");
-    sleep(1);
-    return SUCCESS;
+    return (valor_ret) rand() % 2;
 }
 
 nombre_est buscar_transicion(nombre_est est_act, valor_ret ret) {
@@ -41,6 +39,8 @@ int main(void) {
     valor_ret  ret;
 
     valor_ret (* fun_est)(void);
+
+    srand(time(NULL));
 
     while (1) {
         fun_est = estados[est_act];

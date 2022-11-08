@@ -1,5 +1,5 @@
 CC     = gcc
-CFLAGS = -Wall -O0 -g3
+CFLAGS = -Wall -Wextra -O0 -g3
 
 TRGT = maquinas
 SRCS = maquinas.c
