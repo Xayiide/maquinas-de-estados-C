@@ -26,29 +26,41 @@ valor_ret est_d(void) {
 }
 
 nombre_est buscar_transicion(nombre_est est_act, valor_ret ret) {
+    nombre_est retorno;
     if (est_act == ESTADO_SALIDA)
-        return est_act; /* No debería pasar nunca */
-    
-    /* Truco mañoso que sólo nos vale ahora por tal y como hemos puesto las
-     * transiciones y los estados en el array *transiciones* */
-    return transiciones[2 * (est_act) + ret].destino;
+        retorno = est_act;
+    else
+        retorno = transiciones[2 * (est_act) + ret].destino;
+
+    return retorno;
 }
 
 int main(void) {
+    int continuar      = 1;
     nombre_est est_act = ESTADO_ENTRADA;
     valor_ret  ret;
 
-    valor_ret (* fun_est)(void);
-
     srand(time(NULL));
 
-    while (1) {
-        fun_est = estados[est_act];
-        ret = fun_est();
-        if (est_act == ESTADO_SALIDA) {
-            return ret;
+    while (continuar == 1) {
+        switch(est_act) {
+        case EST_A:
+            ret = est_a();
+            est_act = buscar_transicion(est_act, ret);
+            break;
+        case EST_B:
+            ret = est_b();
+            est_act = buscar_transicion(est_act, ret);
+            break;
+        case EST_C:
+            ret = est_c();
+            est_act = buscar_transicion(est_act, ret);
+            break;
+        case EST_D:
+            ret = est_d();
+            continuar = 0;
+            break;
         }
-        est_act = buscar_transicion(est_act, ret);
     }
 
     return 0;

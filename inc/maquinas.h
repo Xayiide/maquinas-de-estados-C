@@ -42,8 +42,4 @@ valor_ret est_d(void);
 
 nombre_est buscar_transicion(nombre_est, valor_ret);
 
-
-/* estados: array de punteros a función que toma void y devuelve valor_ret */
-valor_ret (* estados[])(void) = {est_a, est_b, est_c, est_d};
-
 #endif
